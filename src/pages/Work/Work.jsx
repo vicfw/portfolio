@@ -43,17 +43,19 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {["Node JS", "React JS", "Next JS", "All"].map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${
-              activeFilter === item ? "item-active" : ""
-            }`}
-          >
-            {item}
-          </div>
-        ))}
+        {["Node JS", "React JS", "Next JS", "HTML CSS", "All"].map(
+          (item, index) => (
+            <div
+              key={index}
+              onClick={() => handleWorkFilter(item)}
+              className={`app__work-filter-item app__flex p-text ${
+                activeFilter === item ? "item-active" : ""
+              }`}
+            >
+              {item}
+            </div>
+          )
+        )}
       </div>
 
       <motion.div
