@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { AiFillEye, AiFillGithub } from 'react-icons/ai';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { AiFillEye, AiFillGithub } from "react-icons/ai";
+import { motion } from "framer-motion";
 
-import { AppWrap, MotionWrap } from '../../wrapper';
-import { urlFor, client } from '../../client';
-import './Work.scss';
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { urlFor, client } from "../../client";
+import "./Work.scss";
 
 const Work = () => {
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState("All");
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Work = () => {
     setTimeout(() => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
 
-      if (item === 'All') {
+      if (item === "All") {
         setFilterWork(works);
       } else {
         setFilterWork(works.filter((work) => work.tags.includes(item)));
@@ -43,12 +43,12 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {['Node JS', 'React JS', 'All'].map((item, index) => (
+        {["Node JS", "React JS", "Next JS", "All"].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
             className={`app__work-filter-item app__flex p-text ${
-              activeFilter === item ? 'item-active' : ''
+              activeFilter === item ? "item-active" : ""
             }`}
           >
             {item}
@@ -70,7 +70,7 @@ const Work = () => {
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
                   duration: 0.25,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                   staggerChildren: 0.5,
                 }}
                 className="app__work-hover app__flex"
@@ -116,7 +116,7 @@ const Work = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Work, 'app__works'),
-  'work',
-  'app__primarybg'
+  MotionWrap(Work, "app__works"),
+  "work",
+  "app__primarybg"
 );
